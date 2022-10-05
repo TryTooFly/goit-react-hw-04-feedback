@@ -1,41 +1,39 @@
 import PropTypes from 'prop-types';
-import React from 'react';
-import s from './statistics.module.css';
+import css from './statistics.module.css';
 
-export default function Statistics({
-  message,
+export const Statistics = ({
   good,
-  bad,
   neutral,
+  bad,
   total,
-  percentage,
-}) {
-  return total(
-    <div className={s.statsThumb}>
-      <span className={s.stat}>
+  positivePercentage,
+}) => {
+  return (
+    <ul>
+      <li>
         Good: <span>{good}</span>
-      </span>
-      <span className={s.stat}>
+      </li>
+      <li>
         Neutral: <span>{neutral}</span>
-      </span>
-      <span className={s.stat}>
+      </li>
+      <li>
         Bad: <span>{bad}</span>
-      </span>
-      <span className={s.stat}>
-        Total: <span>{total}</span>
-      </span>
-      <span className={s.stat}>
-        Percentage: <span>{percentage}%</span>
-      </span>
-    </div>
-  );
-}
+      </li>
 
-Statistics.propTypes = {
-  message: PropTypes.string.isRequired,
-  good: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-  percentage: PropTypes.number.isRequired,
+      <li>
+        Total: <span>{total}</span>
+      </li>
+      <li className={css.positive}>
+        Positive feedback: <span>{positivePercentage}%</span>
+      </li>
+    </ul>
+  );
+};
+
+Statistics.prototype = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
 };

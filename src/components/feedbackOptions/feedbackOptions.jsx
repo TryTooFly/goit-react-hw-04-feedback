@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './Feedback.module.css';
+import './feedback.module.css';
 
 export const FeedbackOptions = ({ options, updateFeedback }) => {
   return (
