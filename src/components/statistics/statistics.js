@@ -10,7 +10,7 @@ export default function Statistics({
   total,
   percentage,
 }) {
-  return total ? (
+  return total(
     <div className={s.statsThumb}>
       <span className={s.stat}>
         Good: <span>{good}</span>
@@ -28,8 +28,6 @@ export default function Statistics({
         Percentage: <span>{percentage}%</span>
       </span>
     </div>
-  ) : (
-    <p>{message}</p>
   );
 }
 

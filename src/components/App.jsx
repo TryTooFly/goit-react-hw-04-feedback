@@ -36,14 +36,18 @@ function App() {
         />
       </Section>
       <Section title="Statistics">
-        <Statistics
-          message="There is no feedback"
-          good={status.good}
-          neutral={status.neutral}
-          bad={status.bad}
-          total={countTotalFeedback()}
-          percentage={countPositiveFeedbackPercentage()}
-        />
+        {countTotalFeedback ? (
+          <Statistics
+            message="There is no feedback"
+            good={status.good}
+            neutral={status.neutral}
+            bad={status.bad}
+            total={countTotalFeedback()}
+            percentage={countPositiveFeedbackPercentage()}
+          />
+        ) : (
+          'There is no feedback'
+        )}
       </Section>
     </>
   );
