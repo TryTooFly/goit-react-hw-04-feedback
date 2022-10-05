@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Feedback from './feedback/feedback';
-import { Title } from './title/title';
+import { Section } from './section/section';
 import Statistics from './statistics/statistics';
 
 function App() {
@@ -29,13 +29,13 @@ function App() {
 
   return (
     <>
-      <Title title="Please leave your feedback">
+      <Section title="Please leave your feedback">
         <Feedback
           options={Object.keys(status)}
           onLeaveFeedback={onFeedbackStateChange}
         />
-      </Title>
-      <Title title="Statistics">
+      </Section>
+      <Section title="Statistics">
         <Statistics
           message="There is no feedback"
           good={status.good}
@@ -44,7 +44,7 @@ function App() {
           total={countTotalFeedback()}
           percentage={countPositiveFeedbackPercentage()}
         />
-      </Title>
+      </Section>
     </>
   );
 }
